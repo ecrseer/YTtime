@@ -1,7 +1,35 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import styles from "../../styles/Home.module.css";
+import TextField from "@material-ui/core/TextField";
+import { useState } from "react";
 
 export default function Home() {
+  const [urlvideo, setUrlvideo] = useState('____');
+  const [minuto,setMinuto] = useState(0);
+  const [segundo, setSegundo] = useState(0);
+
+  const chng = ({ target }) => {
+    setUrlvideo(target.value);
+  };
+  
+  async function pegaCtrlC({target}){
+    let arma = await navigator.
+      clipboard.readText().then((cip) => 
+    { 
+      if(target.name=='min') 
+       setMinuto(target.value);
+      else
+       setSegundo(target.value);
+
+      let tempoReal= minuto*60+segundo;
+      //tempoReal = tipos;
+      setUrlvideo(cip+"?t="+tempoReal);
+       
+    });
+  }
+ 
+  
+  
   return (
     <div className={styles.container}>
       <Head>
@@ -10,12 +38,29 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
+        
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+        <TextField
+         id="standard-basic" name="min"
+        label="Minutos" onChange={pegaCtrlC}  />
+        
+        <TextField
+          id="standard-basic"
+          label="Segundos" name="seg"
+          onChange={pegaCtrlC}  
+        />
+        <TextField
+          id="filled-basic"
+          label="Filled"
+          variant="filled"
+          value={urlvideo}
+          style={{width:"100%"}}
+        />
 
         <p className={styles.description}>
-          Get started by editing{' '}
+          Get started by editingg
           <code className={styles.code}>pages/index.js</code>
         </p>
 
@@ -56,10 +101,10 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
     </div>
-  )
+  );
 }
