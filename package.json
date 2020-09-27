@@ -7,8 +7,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "predeploy": "next build",
-    "deploy":"gh-pages -d build"
+    "predeploy": "next export",
+    "deploy":"gh-pages -d build",
+    "export": "next export"
+    
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
