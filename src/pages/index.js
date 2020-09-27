@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "../../styles/Home.module.css";
 import TextField from "@material-ui/core/TextField";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 
 export default function Home() {
   const [urlvideo, setUrlvideo] = useState('____');
@@ -12,20 +12,31 @@ export default function Home() {
     setUrlvideo(target.value);
   };
   
-  async function pegaCtrlC({target}){
-    let arma = await navigator.
+  
+   const pegaCtrlC = useCallback(pegaCtrlCC,[minuto]);
+   
+   
+   
+   function pegaCtrlCC({target}){
+    let arma = navigator.
       clipboard.readText().then((cip) => 
     { 
-      if(target.name=='min') 
-       setMinuto(target.value);
-      else
-       setSegundo(target.value);
-
-      let tempoReal= minuto*60+segundo;
-      //tempoReal = tipos;
-      setUrlvideo(cip+"?t="+tempoReal);
-       
+     tempoAtual(cip,target);       
     });
+  }
+
+  const tempoAtual = (cip,target)=>{
+    if(target.name=='min') 
+    setMinuto(target.value);
+   else
+    setSegundo(target.value);
+
+   
+   let tempoReal= 0;
+   
+   tempoReal = (minuto*60)+segundo;
+   setUrlvideo(cip+"?t="+minuto);
+    
   }
  
   
@@ -45,7 +56,7 @@ export default function Home() {
         <TextField
          id="standard-basic" name="min"
         label="Minutos" onChange={pegaCtrlC}  />
-        
+
         <TextField
           id="standard-basic"
           label="Segundos" name="seg"
