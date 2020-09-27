@@ -2,10 +2,13 @@
   "name": "nexttemp",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ecrseer.github.io/YTtime/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "predeploy": "next build",
+    "deploy":"gh-pages -d build"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
