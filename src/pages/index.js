@@ -1,99 +1,82 @@
 import Head from "next/head";
 import styles from "../../styles/Home.module.css";
 import TextField from "@material-ui/core/TextField";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
+
+function beibe(){
+  return ''+pegaCtrl;
+}
+function menmin(){
+  return 2+1;
+}
+
+async function pegaCtrl(){
+ return await navigator.clipboard
+      .readText()
+      //.then(settingClipboard(cip))
+      .then((it)=>{ return it;})
+}
+
 
 export default function Home() {
-  const [urlvideo, setUrlvideo] = useState('____');
-  const [minuto,setMinuto] = useState(0);
+  const [urlvideo, setUrlvideo] = useState('pegaCtrl');
+  const urlvideoTime = useCallback(
+    (minuto)=>navigator.clipboard
+    .readText().then(data=>setUrlvideo(data+'t='+minuto))
+    ,[urlvideo]);
+  const [minuto, setMinuto] = useState(menmin);
   const [segundo, setSegundo] = useState(0);
+  const [handleChngTimer, sethandleChngTimer] = useState(0);
 
-  const chng = ({ target }) => {
-    setUrlvideo(target.value);
-  };
-  
-  
-   const pegaCtrlC = useCallback(pegaCtrlCC,[minuto]);
-   
-   
-   
-   function pegaCtrlCC({target}){
-    let arma = navigator.
-      clipboard.readText().then((cip) => 
-    { 
-     tempoAtual(cip,target);       
-    });
+  function settingClipboard(cliper) {
+    var titled = document.getElementById("her");
+    titled.innerHTML = cliper;
+    return titled.innerHTML;
   }
 
-  const tempoAtual = (cip,target)=>{
-    if(target.name=='min') 
-    setMinuto(target.value);
-   else
-    setSegundo(target.value);
-
-   
-   let tempoReal= 0;
-   
-   tempoReal = (minuto*60)+segundo;
-   setUrlvideo(cip+"?t="+minuto);
+  const pegaCtrlCC = () => {
     
-  }
- 
-  
-  
+  };
+
+  useEffect(
+    ()=>{
+      urlvideoTime(minuto);
+    }, [minuto]);
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title id="her">Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
-        
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+        <h1 className={styles.title}>{urlvideoTime}</h1>
         <TextField
-         id="standard-basic" name="min"
-        label="Minutos" onChange={pegaCtrlC}  />
+          id="tes"
+          name="min"
+          label="Minutos"
+          onMouseLeave={({ target }) => setMinuto(target.value)}
+        />
 
         <TextField
           id="standard-basic"
-          label="Segundos" name="seg"
-          onChange={pegaCtrlC}  
+          label="Segundos"
+          name="seg"
+          onMouseLeave={({ target }) => setSegundo(target.value)}
         />
         <TextField
           id="filled-basic"
           label="Filled"
           variant="filled"
           value={urlvideo}
-          style={{width:"100%"}}
+          style={{ width: "100%" }}
         />
-
-        <p className={styles.description}>
-          Get started by editingg
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
+        <button onClick={pegaCtrl}>some</button>
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h3>Documentation &rarr;</h3>
             <p>Find in-depth information about Next.js features and API.</p>
           </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
           <a
             href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
             className={styles.card}
