@@ -20,10 +20,13 @@ export default function Home() {
 
   },[urlvideo])
  
-  const adicionaTempoNaURL = () =>{
-    let min= minuto;
-    alert("min "+min);
+  const tempoConvertido = () =>{
+    let soma=parseInt(segundo,10)+parseInt(minuto,10);
+    return soma;
     //setSegundo(minuto)
+  }
+  function temsd() { 
+    return '2';
   }
   
   
@@ -47,13 +50,13 @@ export default function Home() {
           id="standard-basic"
           label="Segundos" name="seg"
           onChange={({target:{value}})=> setSegundo(value)}
-          onMouseLeave={adicionaTempoNaURL}  
+          
         />
         <TextField
           id="filled-basic"
           label="Filled"
           variant="filled"
-          value={urlvideo+'?t='+segundo}
+          value={`${urlvideo}?t=${temsd}`}
           style={{width:"100%"}}
         />
 
