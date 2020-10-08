@@ -2,43 +2,30 @@ import Head from "next/head";
 import styles from "../../styles/Home.module.css";
 import TextField from "@material-ui/core/TextField";
 import { useState, useCallback } from "react";
+import { useEffect } from "react";
 
 export default function Home() {
   const [urlvideo, setUrlvideo] = useState('____');
-  const [minuto,setMinuto] = useState(0);
+  
   const [segundo, setSegundo] = useState(0);
+  const [urlModif,setUrlModif] = useState('');
 
-  const chng = ({ target }) => {
-    setUrlvideo(target.value);
-  };
-  
-  
-   const pegaCtrlC = useCallback(pegaCtrlCC,[minuto]);
-   
-   
-   
-   function pegaCtrlCC({target}){
-    let arma = navigator.
-      clipboard.readText().then((cip) => 
-    { 
-     tempoAtual(cip,target);       
-    });
-  }
+  useEffect(()=>{
+    navigator.
+    clipboard.readText().then((cip) => 
+      {
+       setUrlvideo(cip);
+        }
+        )
 
-  const tempoAtual = (cip,target)=>{
-    if(target.name=='min') 
-    setMinuto(target.value);
-   else
-    setSegundo(target.value);
-
-   
-   let tempoReal= 0;
-   
-   tempoReal = (minuto*60)+segundo;
-   setUrlvideo(cip+"?t="+minuto);
-    
-  }
+  },[urlvideo])
  
+  const adicionaTempoNaURL = () =>{
+    let
+      tempoReal = 0;
+
+    setUrlModif(urlvideo+'?t='+tempoReal);
+  }
   
   
   return (
@@ -55,18 +42,19 @@ export default function Home() {
         </h1>
         <TextField
          id="standard-basic" name="min"
-        label="Minutos" onChange={pegaCtrlC}  />
+        label="Minutos" onChange={({target:{value}})=>setSegundo(value*60)}  />
 
         <TextField
           id="standard-basic"
           label="Segundos" name="seg"
-          onChange={pegaCtrlC}  
+          onChange={({target:{value}})=> setSegundo(value)}
+          onMouseLeave={adicionaTempoNaURL}  
         />
         <TextField
           id="filled-basic"
           label="Filled"
           variant="filled"
-          value={urlvideo}
+          value={segundo}
           style={{width:"100%"}}
         />
 
