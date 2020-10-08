@@ -1,12 +1,12 @@
 import Head from "next/head";
 import styles from "../../styles/Home.module.css";
 import TextField from "@material-ui/core/TextField";
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import { useEffect } from "react";
 
 export default function Home() {
   const [urlvideo, setUrlvideo] = useState('____');
-  
+  const [minuto,setMinuto] = useState(0);
   const [segundo, setSegundo] = useState(0);
   const [urlModif,setUrlModif] = useState('');
 
@@ -21,10 +21,9 @@ export default function Home() {
   },[urlvideo])
  
   const adicionaTempoNaURL = () =>{
-    let
-      tempoReal = 0;
-
-    setUrlModif(urlvideo+'?t='+tempoReal);
+    let min= minuto;
+    alert("min "+min);
+    //setSegundo(minuto)
   }
   
   
@@ -42,7 +41,7 @@ export default function Home() {
         </h1>
         <TextField
          id="standard-basic" name="min"
-        label="Minutos" onChange={({target:{value}})=>setSegundo(value*60)}  />
+        label="Minutos" onChange={({target:{value}})=>setMinuto(value*60)}  />
 
         <TextField
           id="standard-basic"
@@ -54,7 +53,7 @@ export default function Home() {
           id="filled-basic"
           label="Filled"
           variant="filled"
-          value={segundo}
+          value={urlvideo+'?t='+segundo}
           style={{width:"100%"}}
         />
 
