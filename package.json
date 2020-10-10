@@ -1,8 +1,7 @@
 {
   "name": "nexttemp",
   "version": "0.1.0",
-  "private": true,
-  "homepage": "https://ecrseer.github.io/YTtime/",
+  
   "scripts": {
     "dev": "next dev",
     "build": "next build",
