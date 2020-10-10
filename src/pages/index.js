@@ -57,6 +57,7 @@ export default function Home() {
               onChange={({target:{value}})=> setTempo(
                 {segundo:value,minuto:tempo.minuto}) }          
             />
+            
           </a>
 
 
