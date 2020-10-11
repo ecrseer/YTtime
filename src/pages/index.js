@@ -37,17 +37,24 @@ export default function Home() {
   function adicionaTempo(){
     let tmp= parseInt(tempo.minuto)+parseInt(tempo.segundo);
 
-    if(urlvideo.search("youtube")!==-1)//se encontrou youtube 
+    if(urlvideo.search("youtube")!==-1){//se encontrou youtube 
       setUrlModif(''+urlvideo+'&feature=youtu.be&t='+tmp);
+      openLink();}
       else 
-      if(urlvideo.search("youtu.be")!==-1)//se encontrou youtu.be
+      if(urlvideo.search("youtu.be")!==-1){//se encontrou youtu.be
         setUrlModif(''+urlvideo+'&t='+tmp);
+        openLink();
+      }
         else
           setFootinho(<h2>Digite uma url do youtube</h2>)
 
-
-     window.open(`${urlModif}`);
-     navigator.clipboard.writeText(urlModif);
+  }
+  function openLink () {
+    var strWindowFeatures = "location=yes,height=570,width=520,scrollbars=yes,status=yes";
+    var URL = `${urlModif}`;
+    var win = window.open(URL, "_blank", strWindowFeatures);
+    
+    navigator.clipboard.writeText(urlModif);
   }
   function falbck(){
     return(
@@ -85,7 +92,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Clock shared</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
