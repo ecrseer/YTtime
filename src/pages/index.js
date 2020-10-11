@@ -55,6 +55,14 @@ export default function Home() {
     var win = window.open(URL, "_blank", strWindowFeatures);
     
     navigator.clipboard.writeText(urlModif);
+    /* navigator.share(
+      {
+      url:'Para mais informações acesse:https://gabrieljustinocovidpwa.netlify.app/',
+      text:`Total de Casos:${cases} `,
+      title:`covid do pais ${country}`
+
+      }
+    ) */
   }
   function falbck(){
     return(
