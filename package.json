@@ -7,7 +7,7 @@
     "start": "next start",
     "predeploy": "next export",
     "postbuild": "next-on-netlify",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d .next",
     "export": "next export"
   },
   "dependencies": {
