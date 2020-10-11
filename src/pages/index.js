@@ -47,6 +47,7 @@ export default function Home() {
 
 
      window.open(`${urlModif}`);
+     navigator.clipboard.writeText(urlModif);
   }
   function falbck(){
     return(
