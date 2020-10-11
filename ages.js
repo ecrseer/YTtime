@@ -19,3 +19,12 @@ navigator.permissions.query({name:'clipboard-read',
             }
                )
       )
+
+      navigator.share(
+        {
+        url:urlModif,
+        /* text:`Total de Casos:${cases} `,
+        title:`covid do pais ${country}` */
+  
+        }
+      )

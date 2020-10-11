@@ -50,19 +50,12 @@ export default function Home() {
 
   }
   function openLink () {
-    var strWindowFeatures = "location=yes,height=570,width=520,scrollbars=yes,status=yes";
-    var URL = `${urlModif}`;
-    var win = window.open(URL, "_blank", strWindowFeatures);
+    //var strWindowFeatures = "location=yes,height=570,width=520,scrollbars=yes,status=yes";
+    var URL = urlModif;
+    var win = window.open(URL, "_blank");
     
-    navigator.clipboard.writeText(urlModif);
-    /* navigator.share(
-      {
-      url:'Para mais informações acesse:https://gabrieljustinocovidpwa.netlify.app/',
-      text:`Total de Casos:${cases} `,
-      title:`covid do pais ${country}`
-
-      }
-    ) */
+  //  navigator.clipboard.writeText(urlModif).then(()=>{console.log('g')});
+     
   }
   function falbck(){
     return(
@@ -122,8 +115,7 @@ export default function Home() {
 
             <TextField
               id="standard-basic"
-              label="Segundos" name="seg"
-              
+              label="Segundos" name="seg"                         
               onChange={({target:{value}})=> setTempo(
                 {segundo:value,minuto:tempo.minuto}) }  
                 onBlur={adicionaTempo}        
