@@ -20,7 +20,7 @@ export default function Home() {
   const [tempo,setTempo] = useState({minuto:0,segundo:0});
   const [urlModif,setUrlModif] = useState('');
   const [Footinho,setFootinho] = useState(normalFt);
-  
+  const [Falli,setFalli] = useState(()=>{})
   function copyBoard (result){
   
     if((result.state=='granted')||
@@ -29,11 +29,32 @@ export default function Home() {
       clipboard.readText().then((cip) => 
         {setUrlvideo(cip);})
          .then(()=>{
-          let tmp= parseInt(tempo.minuto)+parseInt(tempo.segundo);
-                setUrlModif(''+urlvideo+'?t='+tmp);
+          //adiciona tempo
               });
          
    }
+  }
+  function adicionaTempo(){
+    let tmp= parseInt(tempo.minuto)+parseInt(tempo.segundo);
+
+    if(urlvideo.search("youtube")!==-1)//se encontrou youtube 
+      setUrlModif(''+urlvideo+'&feature=youtu.be&t='+tmp);
+      else 
+      if(urlvideo.search("youtu.be")!==-1)//se encontrou youtu.be
+        setUrlModif(''+urlvideo+'&t='+tmp);
+        else
+          setFootinho(<h2>Digite uma url do youtube</h2>)
+
+
+     window.open(`${urlModif}`);
+  }
+  function falbck(){
+    return(
+      <TextField
+            id="standard-basic" name="min"
+            label="URL" onChange={({target:{value}})=>
+            setUrlvideo(value)}  />
+    )
   }
   useEffect(()=>{
     window.addEventListener("error", function (e) {
@@ -48,6 +69,7 @@ export default function Home() {
       )
       .catch(function (e){
         setFootinho(<h2>Só funciono no Chrome :(</h2>)
+        setFalli(falbck);
       })
       .then(function(){
         //alert('esse é o finaly');
@@ -73,6 +95,8 @@ export default function Home() {
         </h1>
          
         <div className={styles.grid}>
+        {Falli}
+              
           <a  className={styles.card}>
               <TextField
             id="standard-basic" name="min"
@@ -85,7 +109,8 @@ export default function Home() {
               label="Segundos" name="seg"
               
               onChange={({target:{value}})=> setTempo(
-                {segundo:value,minuto:tempo.minuto}) }          
+                {segundo:value,minuto:tempo.minuto}) }  
+                onBlur={adicionaTempo}        
             />
             
           </a>
