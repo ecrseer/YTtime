@@ -4,10 +4,20 @@ import TextField from "@material-ui/core/TextField";
 import { useState } from "react";
 import { useEffect } from "react";
 
+const normalFt = (<a
+  href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Powered by{" "}
+  <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
+</a>);
+
 export default function Home() {
   const [urlvideo, setUrlvideo] = useState('____');
   const [tempo,setTempo] = useState({minuto:0,segundo:0});
   const [urlModif,setUrlModif] = useState('');
+  
 
   useEffect(()=>{
     navigator.
@@ -65,14 +75,7 @@ export default function Home() {
       </main>
 
       <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
+        {true?normalFt:''}
       </footer>
     </div>
   );
