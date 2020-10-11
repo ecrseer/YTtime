@@ -13,28 +13,47 @@ const normalFt = (<a
   <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
 </a>);
 
+
+
 export default function Home() {
   const [urlvideo, setUrlvideo] = useState('____');
   const [tempo,setTempo] = useState({minuto:0,segundo:0});
   const [urlModif,setUrlModif] = useState('');
+  const [Footinho,setFootinho] = useState(normalFt);
   
-
+  function copyBoard (result){
+  
+    if((result.state=='granted')||
+    result.state=='prompt'){           
+      navigator.
+      clipboard.readText().then((cip) => 
+        {setUrlvideo(cip);})
+         .then(()=>{
+          let tmp= parseInt(tempo.minuto)+parseInt(tempo.segundo);
+                setUrlModif(''+urlvideo+'?t='+tmp);
+              });
+         
+   }
+  }
   useEffect(()=>{
-    navigator.
-    clipboard.readText().then((cip) => 
-      {
-       setUrlvideo(cip);
+    window.addEventListener("error", function (e) {
+      alert("Error occurred: " + e.error.message);
+      return false;
+   })
+    navigator.permissions.query({name:'clipboard-read',
+      allowWithoutGesture: false}).then(
+        (result)=>{
+          copyBoard(result);
         }
-        ).then(()=>{
-
-          let tmp=
-            parseInt(tempo.minuto)
-            +parseInt(tempo.segundo);
-          setUrlModif(''+urlvideo+'?t='+tmp);
-          
-        }
-        )
-
+      )
+      .catch(function (e){
+        setFootinho(<h2>Só funciono no Chrome :(</h2>)
+      })
+      .then(function(){
+        //alert('esse é o finaly');
+      })
+      ;
+    
   },[urlvideo,tempo])
  
   
@@ -64,6 +83,7 @@ export default function Home() {
             <TextField
               id="standard-basic"
               label="Segundos" name="seg"
+              
               onChange={({target:{value}})=> setTempo(
                 {segundo:value,minuto:tempo.minuto}) }          
             />
@@ -75,7 +95,7 @@ export default function Home() {
       </main>
 
       <footer className={styles.footer}>
-        {true?normalFt:''}
+        {true?Footinho:''}
       </footer>
     </div>
   );

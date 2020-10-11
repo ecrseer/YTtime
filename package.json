@@ -2,7 +2,7 @@
   "name": "nexttemp",
   "version": "0.1.0",
   "scripts": {
-    "dev": "next",
+    "dev": "next dev",
     "build": "rm -rf .next && next build",
     "start": "next start",
     "predeploy": "next export",
