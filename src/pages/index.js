@@ -38,11 +38,12 @@ export default function Home() {
     let tmp= parseInt(tempo.minuto)+parseInt(tempo.segundo);
 
     if(urlvideo.search("youtube")!==-1){//se encontrou youtube 
-      setUrlModif(''+urlvideo+'&feature=youtu.be&t='+tmp);
+      setUrlModif(urlvideo+'&feature=youtu.be&t='+tmp);
       openLink();}
       else 
-      if(urlvideo.search("youtu.be")!==-1){//se encontrou youtu.be
-        setUrlModif(''+urlvideo+'&t='+tmp);
+      if(urlvideo.search("youtu.be")!==-1){
+//        alert("//se encontrou youtu.be");
+        setUrlModif(urlvideo+'?t='+tmp);
         openLink();
       }
         else
@@ -52,7 +53,7 @@ export default function Home() {
   function openLink () {
     //var strWindowFeatures = "location=yes,height=570,width=520,scrollbars=yes,status=yes";
     var URL = urlModif;
-    var win = window.open(URL, "_blank");
+    var win = window.open(URL, "youtube");
     
   //  navigator.clipboard.writeText(urlModif).then(()=>{console.log('g')});
      
