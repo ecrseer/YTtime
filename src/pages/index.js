@@ -36,24 +36,26 @@ export default function Home() {
   }
   function adicionaTempo(){
     let tmp= parseInt(tempo.minuto)+parseInt(tempo.segundo);
-
+    let url="";
     if(urlvideo.search("youtube")!==-1){//se encontrou youtube 
-      setUrlModif(urlvideo+'&feature=youtu.be&t='+tmp);
-      openLink();}
+      url=urlvideo+'&feature=youtu.be&t='+tmp;
+      setUrlModif(url);
+      openLink(url);}
       else 
       if(urlvideo.search("youtu.be")!==-1){
 //        alert("//se encontrou youtu.be");
-        setUrlModif(urlvideo+'?t='+tmp);
-        openLink();
+        url=urlvideo+'?t='+tmp;
+        setUrlModif(url);
+        openLink(url);
       }
         else
           setFootinho(<h2>Digite uma url do youtube</h2>)
 
   }
-  function openLink () {
+  function openLink (url) {
     //var strWindowFeatures = "location=yes,height=570,width=520,scrollbars=yes,status=yes";
-    var URL = urlModif;
-    var win = window.open(URL, "youtube");
+    
+    var win = window.open(url, "youtube");
     
   //  navigator.clipboard.writeText(urlModif).then(()=>{console.log('g')});
      
