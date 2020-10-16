@@ -54,8 +54,7 @@ export default function Home() {
   }
   function openLink (url) {
     //var strWindowFeatures = "location=yes,height=570,width=520,scrollbars=yes,status=yes";
-    
-    var win = window.open(url, "youtube");
+        var win = window.open(url, "youtube");
     
   //  navigator.clipboard.writeText(urlModif).then(()=>{console.log('g')});
      
