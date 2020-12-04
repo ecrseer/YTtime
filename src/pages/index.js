@@ -3,7 +3,7 @@ import styles from "../../styles/Home.module.css";
 import TextField from "@material-ui/core/TextField";
 import { useState } from "react";
 import { useEffect } from "react";
-import {txt} from '../../assets/lorem';
+import {txt,txtpt} from '../../assets/lorem';
 
 const normalFt = (<a
   href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
@@ -127,7 +127,7 @@ export default function Home() {
           <a  className={styles.card}>{txt}
           
             </a>
-            <a  className={styles.card}>{txt}
+            <a  className={styles.card}>{txtpt}
           
             </a>
 
