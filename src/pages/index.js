@@ -3,14 +3,14 @@ import styles from "../../styles/Home.module.css";
 import TextField from "@material-ui/core/TextField";
 import { useState } from "react";
 import { useEffect } from "react";
+import {txt} from '../../assets/lorem';
 
 const normalFt = (<a
   href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
   target="_blank"
   rel="noopener noreferrer"
 >
-  Powered by{" "}
-  <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
+  Made with ❤️ by  gjm
 </a>);
 
 
@@ -124,14 +124,20 @@ export default function Home() {
             />
             
           </a>
-
+          <a  className={styles.card}>{txt}
+          
+            </a>
+            <a  className={styles.card}>{txt}
+          
+            </a>
 
         </div>
       </main>
-
+     <div className={styles.difoter}>
       <footer className={styles.footer}>
         {true?Footinho:''}
       </footer>
+      </div>
     </div>
   );
 }
