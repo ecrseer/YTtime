@@ -3,7 +3,8 @@ import styles from "../../styles/Home.module.css";
 import TextField from "@material-ui/core/TextField";
 import { useState } from "react";
 import { useEffect } from "react";
-import {txt,txtpt} from '../../assets/lorem';
+import {txt,txtpt,extratxts} from '../../assets/lorem';
+import Imgvw from "../components/Imgvw";
 
 const normalFt = (<a
   href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
@@ -125,11 +126,21 @@ export default function Home() {
             />
             
           </a>
-          <a  className={styles.card}>{txt}
-          
+          <a  className={styles.card}>{txt}          
             </a>
-            <a  className={styles.card}>{txtpt}
-          
+            <a  className={styles.card}>
+                <Imgvw alt="d"/>
+                <img src="../../assets/time.jpg"/>
+            </a>
+            <a  className={styles.card}>{extratxts.first}          
+            </a>
+            <a  className={styles.card}>{txtpt}          
+            </a>
+            <a  className={styles.card}>{extratxts.second}          
+            </a>
+            <a  className={styles.card}>{extratxts.third}          
+            </a>
+            <a  className={styles.card}>{extratxts.four}          
             </a>
 
         </div>
