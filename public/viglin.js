@@ -7,7 +7,7 @@ var vglnk = {key: 'd6040451931d5322413930a74db31fb1'};
         s.async = true;
         s.src = '//cdn.viglink.com/api/vglnk.js';
     var r = d.getElementsByTagName(t)[1];
-    console.log('lock and loadeddd'+r)
+    
         r.parentNode.insertBefore(s, r);
 }(document, 'script'));
 

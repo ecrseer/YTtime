@@ -14,6 +14,7 @@ class MyDocument extends Document {
           <Main />
           <NextScript />
           <script src="/viglin.js"/>
+          
         </body>
       </Html>
     )
