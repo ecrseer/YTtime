@@ -13,7 +13,7 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <script src="viglink.js"></script> 
+          
         </body>
       </Html>
     )
