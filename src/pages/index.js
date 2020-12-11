@@ -70,7 +70,7 @@ export default function Home() {
   useEffect(()=>{
       setTimeout(()=>{
           var vglnk = {key: 'd6040451931d5322413930a74db31fb1'};
-          function viglis3(d, s) {
+          function viglis3(d, t) {
             var s = d.createElement(t);
                 s.type = 'text/javascript';
                 s.async = true;
