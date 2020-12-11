@@ -6,10 +6,8 @@ var vglnk = {key: 'd6040451931d5322413930a74db31fb1'};
         s.type = 'text/javascript';
         s.async = true;
         s.src = '//cdn.viglink.com/api/vglnk.js';
-    var r = d.getElementsByTagName(t)[10];
-    console.log('lock and loadeddd'+r)
+    var r = d.getElementsByTagName(t)[0];
+    console.log("exected");
         r.parentNode.insertBefore(s, r);
 }(document, 'script'));
-
-
-
+console.log('lock and loadded')
