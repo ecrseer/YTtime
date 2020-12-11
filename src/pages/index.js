@@ -22,6 +22,7 @@ export default function Home() {
   const [urlModif,setUrlModif] = useState('');
   const [Footinho,setFootinho] = useState(normalFt);
   const [Falli,setFalli] = useState(()=>{})
+  
   function copyBoard (result){
   
     if((result.state=='granted')||
@@ -87,7 +88,17 @@ export default function Home() {
         //alert('esse é o finaly');
       })
       ;
-    
+      
+      var vglnk = {key: 'd6040451931d5322413930a74db31fb1'};
+      (function(d, t) {
+          var s = d.createElement(t);
+              s.type = 'text/javascript';
+              s.async = true;
+              s.src = '//cdn.viglink.com/api/vglnk.js';
+          var r = d.getElementsByTagName(t)[0];
+              r.parentNode.insertBefore(s, r);
+      }(document, 'script'));
+  
   },[urlvideo,tempo])
  
   
@@ -130,7 +141,7 @@ export default function Home() {
             </a>
             <a  className={styles.card}>
                 <Imgvw alt="d"/>
-                <img src="../../assets/time.jpg"/>
+                <img src='../'/>
             </a>
             <a  className={styles.card}>{extratxts.first}          
             </a>
@@ -150,6 +161,9 @@ export default function Home() {
         {true?Footinho:''}
       </footer>
       </div>
+
+
+
     </div>
   );
 }
