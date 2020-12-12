@@ -4,7 +4,7 @@ import TextField from "@material-ui/core/TextField";
 import { useState } from "react";
 import { useEffect } from "react";
 import {txt,txtpt} from '../../assets/lorem';
-
+import AdsLink from '../components/adsLink';
 const normalFt = (<a
   href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
   target="_blank"
@@ -104,7 +104,9 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        
+        <div>
+            <AdsLink/>
+        </div>
         <h1 className={styles.title}>
           {urlModif}
         </h1>

