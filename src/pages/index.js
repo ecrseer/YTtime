@@ -69,17 +69,8 @@ export default function Home() {
   }
   useEffect(()=>{
       setTimeout(()=>{
-          var vglnk = {key: 'd6040451931d5322413930a74db31fb1'};
-          function viglis3(d, t) {
-            var s = d.createElement(t);
-                s.type = 'text/javascript';
-                s.async = true;
-                s.src = '//cdn.viglink.com/api/vglnk.js';
-            var r = d.getElementsByTagName(t)[1];
-            
-                r.parentNode.insertBefore(s, r);
-        }
-        viglis3(document,'script')
+         
+        
       },100)
     window.addEventListener("error", function (e) {
       alert("Error occurred: " + e.error.message);
